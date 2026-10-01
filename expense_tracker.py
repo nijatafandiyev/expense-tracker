@@ -1,4 +1,4 @@
-"""Simple console expense tracker.
+
 
 Features: add expenses, list them, see totals per category.
 Data is saved to expenses.json so it is kept between runs.
@@ -11,7 +11,7 @@ FILE_NAME = "expenses.json"
 
 
 def load_expenses():
-    """Read expenses from the file. Return an empty list if it does not exist."""
+    
     try:
         with open(FILE_NAME, "r", encoding="utf-8") as f:
             return json.load(f)
@@ -20,13 +20,13 @@ def load_expenses():
 
 
 def save_expenses(expenses):
-    """Write all expenses to the file."""
+   
     with open(FILE_NAME, "w", encoding="utf-8") as f:
         json.dump(expenses, f, indent=2, ensure_ascii=False)
 
 
 def add_expense(expenses):
-    """Ask the user for expense details and add them to the list."""
+   
     category = input("Category (e.g. food, transport): ").strip().lower()
     try:
         amount = float(input("Amount (HUF): "))
@@ -56,7 +56,7 @@ def list_expenses(expenses):
 
 
 def show_summary(expenses):
-    """Print the total spent per category and overall."""
+   
     if not expenses:
         print("No expenses yet.")
         return
