@@ -1,9 +1,3 @@
-
-
-Features: add expenses, list them, see totals per category.
-Data is saved to expenses.json so it is kept between runs.
-"""
-
 import json
 from datetime import date
 
@@ -11,7 +5,6 @@ FILE_NAME = "expenses.json"
 
 
 def load_expenses():
-    
     try:
         with open(FILE_NAME, "r", encoding="utf-8") as f:
             return json.load(f)
@@ -20,13 +13,11 @@ def load_expenses():
 
 
 def save_expenses(expenses):
-   
     with open(FILE_NAME, "w", encoding="utf-8") as f:
         json.dump(expenses, f, indent=2, ensure_ascii=False)
 
 
 def add_expense(expenses):
-   
     category = input("Category (e.g. food, transport): ").strip().lower()
     try:
         amount = float(input("Amount (HUF): "))
@@ -47,7 +38,6 @@ def add_expense(expenses):
 
 
 def list_expenses(expenses):
-    """Print all expenses."""
     if not expenses:
         print("No expenses yet.")
         return
@@ -56,7 +46,6 @@ def list_expenses(expenses):
 
 
 def show_summary(expenses):
-   
     if not expenses:
         print("No expenses yet.")
         return
@@ -94,3 +83,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+
